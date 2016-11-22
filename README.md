@@ -1,5 +1,7 @@
 # WHS.GlowLine
 
+[![NPM](https://nodei.co/npm/whs-component-glowline.png)](https://nodei.co/npm/whs-component-glowline/)
+
 | Type | Physics? | WHS Version |
 |------|----------|-------------|
 | Component | No  | ^1.1.14     |
