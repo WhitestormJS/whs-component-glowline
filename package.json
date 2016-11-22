@@ -9,7 +9,13 @@
     "dev": "gulp dev"
   },
   "keywords": [
-    "whs-component"
+    "whs",
+    "whs-component",
+    "glow",
+    "three.js",
+    "webgl",
+    "3d",
+    "shader"
   ],
   "devDependencies": {
     "babel": "^6.5.2",
