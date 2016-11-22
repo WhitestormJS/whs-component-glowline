@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="../whs/whitestorm.js"></script>
+    <script src="../build/whs-component-glowline.js"></script>
+    <script type="text/javascript">
+    const world = new WHS.World({
+      autoresize: "window",
+
+      gravity: {
+        x: 0,
+        y: -100,
+        z: 0
+      },
+
+      camera: {
+        far: 10000,
+        position: {
+          y: 10, 
+          z: 30
+        }
+      }
+    });
+
+    const curve1 = new WHS.GlowLine({
+      position: [0, 0, 0],
+
+      geometry: {
+        radius: 0.1,
+        delta: 0.2,
+        curveDetail: 64,
+        curve: new THREE.CubicBezierCurve3(
+          new THREE.Vector3( -10, 0, 0 ),
+          new THREE.Vector3( -5, 15, 0 ),
+          new THREE.Vector3( 20, 15, 0 ),
+          new THREE.Vector3( 10, 0, 0 )
+        )
+      },
+
+      glow: {
+        normalIntensity: 70,
+        cameraIntensity: 0
+      }
+    }).addTo(world);
+
+    const curve2 = new WHS.GlowLine({
+      position: [0, 0, 0],
+
+      geometry: {
+        radius: 0.1,
+        delta: 0.2,
+        curveDetail: 64,
+        curve: new THREE.QuadraticBezierCurve3(
+          new THREE.Vector3( -10, 0, -10 ),
+          new THREE.Vector3( 0, 10, 30 ),
+          new THREE.Vector3( 10, 0, 20 )
+        )
+      },
+
+      material: {
+        color: 0x00ff00
+      },
+
+      glow: {
+        normalIntensity: 70,
+        cameraIntensity: 0,
+        color: 0x00ff00
+      }
+    }).addTo(world);
+
+    const curve3 = new WHS.GlowLine({
+      position: [20, 0, 0],
+
+      geometry: {
+        radius: 0.1,
+        delta: 0.2,
+        curveDetail: 64,
+        curve: new THREE.QuadraticBezierCurve3(
+          new THREE.Vector3( -0, 0, -10 ),
+          new THREE.Vector3( 20, 0, -30 ),
+          new THREE.Vector3( 0, 50, 10 )
+        )
+      },
+
+      material: {
+        color: 0xffff00
+      },
+
+      glow: {
+        normalIntensity: 70,
+        cameraIntensity: 0,
+        margin: -0.5,
+        color: 0x00ffff
+      }
+    }).addTo(world);
+
+    const curve4 = new WHS.GlowLine({
+      position: [-20, 0, 0],
+
+      geometry: {
+        radius: 0.1,
+        delta: 0.2,
+        curveDetail: 64,
+        curve: new THREE.CatmullRomCurve3([
+          new THREE.Vector3( -10, 0, 10 ),
+          new THREE.Vector3( -5, 5, 5 ),
+          new THREE.Vector3( 0, 0, 0 ),
+          new THREE.Vector3( 5, -5, 5 ),
+          new THREE.Vector3( 10, 0, 10 )
+        ])
+      },
+
+      material: {
+        color: 0x00ff00
+      },
+
+      glow: {
+        normalIntensity: 90,
+        cameraIntensity: 1,
+        margin: -0.5,
+        pow: 4,
+        color: 0xff00ff
+      }
+    }).addTo(world);
+
+    world.start();
+    world.setControls(new WHS.OrbitControls());
+
+    </script>
+  </body>
+</html>
