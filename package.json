@@ -1,6 +1,6 @@
 {
   "name": "whs-component-glowline",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple plugin to make glow lines",
   "main": "lib/index.js",
   "scripts": {
